@@ -3,7 +3,8 @@ const server = "http://localhost:8080"
 
 const config = {
   server,
-  loginUrl: server + '/api/login'
+  loginUrl: server + '/api/login', //微信小程序登陆接口
+  eventsUrl: server + '/api' //其余接口
 }
 
 export default config
