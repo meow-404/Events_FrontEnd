@@ -3,7 +3,7 @@
 
     <img src="/static/images/IMG_2229.jpg">
     <div>
-      <div class="login_welcome">NCL GO</div>
+      <div class="login_welcome">JUST GO</div>
       <button class="login_btn" open-type="getUserInfo" @getuserinfo="getUserInfo">授权登录</button>
     </div>
   </div>
@@ -16,14 +16,14 @@
     methods: {
       getUserInfo(e) {
         var _this = this
-        console.log(e.target.userInfo)
+        //console.log(e.target.userInfo)
         let currentUser = e.target.userInfo // 当前用户信息
         const loginUrl = config.loginUrl // Url信息
         // 调用接口获取登录凭证（code）。通过凭证进而换取用户登录态信息，包括用户的唯一标识（openid）及本次登录的会话密钥（session_key）等。
         wx.login({
           // 接口调用成功的回调函数
           success (res) {
-            console.log(res)
+            //console.log(res)
             if (res.code) {
               //发起网络请求
               wx.request({
@@ -70,18 +70,18 @@
       position: relative;
       top: 20rpx;
       z-index: 99;
-      width: 70vw;
+      width: 30vw;
       margin: auto;
       font-weight: bolder;
-      font-family: "Times New Roman";
+      font-family: "Apple Braille";
       font-size: 15px;
     }
     .login_btn{
       border-radius: 4px;
       background-color: #E97051;
-      color: #322f3b;
+      color: #FFFFFF;
       font-weight: lighter;
-      width: 50vw;
+      width: 45vw;
       border: 2px solid #E85B33;
     }
   }

@@ -6,22 +6,15 @@
       <div>{{currentUser.nickName}}</div>
     </div>
 
-    <div class="user-options">
-      <div class="left-msg">用户子页面</div>
-      <div class="right-msg"> > </div>
-    </div>
+    <van-tabs animated>
+      <van-tab title="我的发布">内容 1</van-tab>
+      <van-tab title="我的收藏">内容 2</van-tab>
+      <van-tab title="标签 3">内容 3</van-tab>
+    </van-tabs>
 
-    <div class="user-options">
-      <div class="left-msg">用户子页面</div>
-      <div class="right-msg"> > </div>
+    <div class="btn">
+      <button class="logout" @click="logout">退出登陆</button>
     </div>
-
-    <div class="user-options">
-      <div class="left-msg">用户子页面</div>
-      <div class="right-msg"> > </div>
-    </div>
-
-    <button class="logout" @click="logout">退出登陆</button>
   </div>
 </template>
 
@@ -36,7 +29,7 @@
 
     mounted() {
       if (wx.getStorageSync('userinfo')) {
-        console.log('进入用户中心')
+        //console.log('进入用户中心')
         this.currentUser = wx.getStorageSync('userinfo')
       } else {
         console.log('异常登录进入进入')
@@ -48,7 +41,7 @@
         wx.removeStorage({
           key: 'userinfo',
           success(res) {
-            console.log(res)
+            //console.log(res)
             wx.hideTabBar()
             wx.reLaunch({
               url: '/pages/index/main?logout=true'
@@ -68,7 +61,7 @@
 <style lang="scss">
 
   .avatar-container {
-    background-color: #322f3b;
+    background-color: #87CEFA;
     padding: 10px;
     img {
       width: 100px;
@@ -79,8 +72,9 @@
     }
     div {
       display: inline-block;
-      color: #e2e1e4;
-      font-size: 30px;
+      color: #FFFFFF;
+      font-size: 40rpx;
+      font-family: "Lucida Grande";
     }
   }
   .user-options {
@@ -109,21 +103,26 @@
     }
   }
 
-  .logout {
-    height: 45px;
-    line-height: 45px;
-    font-size: 20px;
-    font-weight: bolder;
-    margin-top: 10px;
-    margin-left: 10px;
-    margin-right: 10px;
-    border-radius: 10px;
-    box-shadow: 1px 1px 2px #322f3b;
-    border: 1px solid #e2e1e4;
-    justify-content: space-between;
-    background-color: #e2e1e4;
-    color: crimson;
-    text-align: center;
+  .btn {
+    position: fixed;
+    bottom: 10px;
+    margin-left: 35%;
+    .logout {
+      height: 45px;
+      line-height: 45px;
+      font-size: 15px;
+      font-weight: bolder;
+      margin-top: 10px;
+      margin-left: 10px;
+      margin-right: 10px;
+      border-radius: 10px;
+      box-shadow: 1px 1px 2px #322f3b;
+      border: 1px solid #e2e1e4;
+      justify-content: space-between;
+      background-color: #FFFFFF;
+      color: crimson;
+      text-align: center;
+    }
   }
 
 </style>

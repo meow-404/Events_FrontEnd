@@ -7,7 +7,10 @@
       <!--<van-search :value="value" placeholder="请输入搜索关键词" show-action @search="onSearch($e)" />-->
       <van-search :value="val" placeholder="请输入搜索关键词" show-action @search="onSearch"/>
       <div>
-        <event></event>
+        <dropdown-menu></dropdown-menu>
+      </div>
+      <div>
+        <event ref="events"></event>
       </div>
     </div>
   </div>
@@ -16,13 +19,15 @@
 <script>
   import login from "../../components/index/login";
   import event from "../../components/index/event";
+  import dropdownMenu from "../../components/index/dropdownMenu";
   import config from "../../config";
 
   export default {
 
     components: {
       login,
-      event
+      event,
+      dropdownMenu
     },
     data () {
       return {
@@ -42,6 +47,7 @@
     mounted() {
       if (wx.getStorageSync('userinfo')) {
         this.notLogin = false // 如果已存在用户信息，则隐藏登陆按钮
+        this.getEvents();
       } else {
         wx.hideTabBar() // 如果不存在用户信息, 隐藏底栏
       }
@@ -57,7 +63,9 @@
           duration: 2000
         })
         console.log("登陆成功")
+        this.getEvents();
       },
+
       onSearch(e) {
         this.val = e.mp.detail
         console.log(this.val)
@@ -72,6 +80,25 @@
           },
           success (res) {
             console.log(res.data)
+          }
+        })
+      },
+
+      getEvents() {
+        var _this = this
+        wx.request({
+          url: config.eventsUrl + '/getAll', //仅为示例，并非真实的接口地址
+          data: {
+
+          },
+          method: 'GET',
+          header: {
+            'content-type': 'application/json' // 默认值
+          },
+          success (res) {
+            console.log(res.data)
+            _this.$refs.events.events = res.data
+            _this.$refs.events.processedEventsInfo()
           }
         })
       }

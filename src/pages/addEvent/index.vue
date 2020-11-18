@@ -30,6 +30,9 @@
           </div>
         </van-popup>
       </div>
+      <div class="chooseImg">
+        <img :src="imgSrc" @click="chooseImg()"/>
+      </div>
     </div>
     <button @click="submit">123</button>
   </div>
@@ -37,6 +40,7 @@
 
 <script>
   import calculator from "../../components/add/calculator";
+  import config from "../../config";
 
   export default {
     components: {
@@ -72,7 +76,8 @@
           name: '',
           startTime: '',
           endTime: '',
-        }
+        },
+        imgSrc: "https://thirdwx.qlogo.cn/mmopen/vi_32/pv6oGv8kico72icS59fY6Z2icaqna7Wu9GEEGkr25EN0GX2gned25zf6DCpQQPStCcOCJTAuOrZKicngExjB0RtT2A/132"
       }
     },
 
@@ -161,6 +166,26 @@
         return year+"-"+month+"-"+day+" "+hour+":"+minute;
       },
 
+      chooseImg() {
+        wx.chooseImage({
+          success (res) {
+            const tempFilePaths = res.tempFilePaths
+            wx.uploadFile({
+              url: config.imgUploadUrl, // 调用后端图片上传接口
+              filePath: tempFilePaths[0],
+              name: 'file',
+              formData: {
+                'user': 'test'
+              },
+              success (res){
+                const data = res.data
+                //do something
+                console.log(res)
+              }
+            })
+          }
+        })
+      }
     }
   }
 
@@ -175,6 +200,15 @@
   .dateSelector {
     display: flex;
     flex-direction: row;
+  }
+
+  .chooseImg {
+    width: 100px;
+    height: 100px;
+    img {
+      width: 100px;
+      height: 100px;
+    }
   }
 
 </style>

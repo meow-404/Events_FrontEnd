@@ -17,7 +17,7 @@
               <span>{{event.city}}</span>
             </div>
             <div class="event-btn">
-              <button class="btn">收藏</button>
+              <button class="btn" @click="collection">收藏</button>
               <button class="btn">详情</button>
             </div>
           </div>
@@ -31,97 +31,99 @@
   export default {
     data() {
       return {
-        events: [{
-          id: "lln232432",
-          name: "Jack and the Beanstalk: A Socially Distanced Pantomime",
-          category: "Art",
-          city: "Newcastle Upon Tyne",
-          location: "Tyne Theatre & Opera House",
-          address: "Westgate Road, Newcastle Upon Tyne",
-          startTime: "2020-12-18T19:00:00.000+00:00",
-          endTime: "2020-12-18T20:15:00.000+00:00",
-          detail: "Does the Tyne Theatre have a pantomime this Christmas?… Oh yes it does!Climb up our socially distanced Beanstalk this December with a GIANT of a show starring the hilarious Charlie Richmond as Simple Simon and a cast of some of the North East’s best panto talent.This year’s production is a specially designed 75 minute, socially distanced, rib-tickling festive treat for all the family, with a reduced capacity and no interval to minimise crowding.Join dotty Dame Trott and her family as they are tricked into selling their beloved cow Daisy for a useless bag of beans. Laugh at silly Simple Simon and cheer-on our hero Jack as he tries to rescue his sweetheart Jill from the nasty Giant’s castle in the sky.We only have a very limited number of tickets for this year’s panto, so if you want to join in the fun and laughter this Christmas at the Tyne Theatre & Opera House book early to avoid disappointment.Fee Fi Fo Fum… It’s panto fun for everyone!For booking & safety information, please see our website: http://bit.ly/TTbeanstalk",
-          pics: "https://thirdwx.qlogo.cn/mmopen/vi_32/pv6oGv8kico72icS59fY6Z2icaqna7Wu9GEEGkr25EN0GX2gned25zf6DCpQQPStCcOCJTAuOrZKicngExjB0RtT2A/132",
-          originalLink: "https://www.facebook.com/events/3726572010695855/?acontext=%7B%22source%22%3A2%2C%22source_dashboard_filter%22%3A%22discovery%22%2C%22action_history%22%3A%22[%7B%5C%22surface%5C%22%3A%5C%22discover_filter_list%5C%22%2C%5C%22mechanism%5C%22%3A%5C%22surface%5C%22%2C%5C%22extra_data%5C%22%3A%7B%5C%22dashboard_filter%5C%22%3A%5C%22discovery%5C%22%7D%7D]%22%2C%22has_source%22%3Atrue%7D"
-        },
-        {
-          id: "lln232433",
-          name: "Jack and the Beanstalk: A Socially Distanced Pantomime",
-          category: "Art",
-          city: "Newcastle Upon Tyne",
-          location: "Tyne Theatre & Opera House",
-          address: "Westgate Road, Newcastle Upon Tyne",
-          startTime: "2020-12-18T19:00:00.000+00:00",
-          endTime: "2020-12-18T20:15:00.000+00:00",
-          detail: "Does the Tyne Theatre have a pantomime this Christmas?… Oh yes it does!Climb up our socially distanced Beanstalk this December with a GIANT of a show starring the hilarious Charlie Richmond as Simple Simon and a cast of some of the North East’s best panto talent.This year’s production is a specially designed 75 minute, socially distanced, rib-tickling festive treat for all the family, with a reduced capacity and no interval to minimise crowding.Join dotty Dame Trott and her family as they are tricked into selling their beloved cow Daisy for a useless bag of beans. Laugh at silly Simple Simon and cheer-on our hero Jack as he tries to rescue his sweetheart Jill from the nasty Giant’s castle in the sky.We only have a very limited number of tickets for this year’s panto, so if you want to join in the fun and laughter this Christmas at the Tyne Theatre & Opera House book early to avoid disappointment.Fee Fi Fo Fum… It’s panto fun for everyone!For booking & safety information, please see our website: http://bit.ly/TTbeanstalk",
-          pics: "https://thirdwx.qlogo.cn/mmopen/vi_32/pv6oGv8kico72icS59fY6Z2icaqna7Wu9GEEGkr25EN0GX2gned25zf6DCpQQPStCcOCJTAuOrZKicngExjB0RtT2A/132",
-          originalLink: "https://www.facebook.com/events/3726572010695855/?acontext=%7B%22source%22%3A2%2C%22source_dashboard_filter%22%3A%22discovery%22%2C%22action_history%22%3A%22[%7B%5C%22surface%5C%22%3A%5C%22discover_filter_list%5C%22%2C%5C%22mechanism%5C%22%3A%5C%22surface%5C%22%2C%5C%22extra_data%5C%22%3A%7B%5C%22dashboard_filter%5C%22%3A%5C%22discovery%5C%22%7D%7D]%22%2C%22has_source%22%3Atrue%7D"
-        },
-        {
-          id: "lln232434",
-          name: "Jack and the Beanstalk: A Socially Distanced Pantomime",
-          category: "Art",
-          city: "Newcastle Upon Tyne",
-          location: "Tyne Theatre & Opera House",
-          address: "Westgate Road, Newcastle Upon Tyne",
-          startTime: "2020-12-18T19:00:00.000+00:00",
-          endTime: "2020-12-18T20:15:00.000+00:00",
-          detail: "Does the Tyne Theatre have a pantomime this Christmas?… Oh yes it does! Climb up our socially distanced Beanstalk this December with a GIANT of a show starring the hilarious Charlie Richmond as Simple Simon and a cast of some of the North East’s best panto talent.This year’s production is a specially designed 75 minute, socially distanced, rib-tickling festive treat for all the family, with a reduced capacity and no interval to minimise crowding.Join dotty Dame Trott and her family as they are tricked into selling their beloved cow Daisy for a useless bag of beans. Laugh at silly Simple Simon and cheer-on our hero Jack as he tries to rescue his sweetheart Jill from the nasty Giant’s castle in the sky.We only have a very limited number of tickets for this year’s panto, so if you want to join in the fun and laughter this Christmas at the Tyne Theatre & Opera House book early to avoid disappointment.Fee Fi Fo Fum… It’s panto fun for everyone!For booking & safety information, please see our website: http://bit.ly/TTbeanstalk",
-          pics: "https://thirdwx.qlogo.cn/mmopen/vi_32/pv6oGv8kico72icS59fY6Z2icaqna7Wu9GEEGkr25EN0GX2gned25zf6DCpQQPStCcOCJTAuOrZKicngExjB0RtT2A/132",
-          originalLink: "https://www.facebook.com/events/3726572010695855/?acontext=%7B%22source%22%3A2%2C%22source_dashboard_filter%22%3A%22discovery%22%2C%22action_history%22%3A%22[%7B%5C%22surface%5C%22%3A%5C%22discover_filter_list%5C%22%2C%5C%22mechanism%5C%22%3A%5C%22surface%5C%22%2C%5C%22extra_data%5C%22%3A%7B%5C%22dashboard_filter%5C%22%3A%5C%22discovery%5C%22%7D%7D]%22%2C%22has_source%22%3Atrue%7D"
-        },
-        {
-            id: "lln232434",
-            name: "Jack and the Beanstalk: A Socially Distanced Pantomime",
-            category: "Art",
-            city: "Newcastle Upon Tyne",
-            location: "Tyne Theatre & Opera House",
-            address: "Westgate Road, Newcastle Upon Tyne",
-            startTime: "2020-12-18T19:00:00.000+00:00",
-            endTime: "2020-12-18T20:15:00.000+00:00",
-            detail: "Does the Tyne Theatre have a pantomime this Christmas?… Oh yes it does! Climb up our socially distanced Beanstalk this December with a GIANT of a show starring the hilarious Charlie Richmond as Simple Simon and a cast of some of the North East’s best panto talent.This year’s production is a specially designed 75 minute, socially distanced, rib-tickling festive treat for all the family, with a reduced capacity and no interval to minimise crowding.Join dotty Dame Trott and her family as they are tricked into selling their beloved cow Daisy for a useless bag of beans. Laugh at silly Simple Simon and cheer-on our hero Jack as he tries to rescue his sweetheart Jill from the nasty Giant’s castle in the sky.We only have a very limited number of tickets for this year’s panto, so if you want to join in the fun and laughter this Christmas at the Tyne Theatre & Opera House book early to avoid disappointment.Fee Fi Fo Fum… It’s panto fun for everyone!For booking & safety information, please see our website: http://bit.ly/TTbeanstalk",
-            pics: "https://thirdwx.qlogo.cn/mmopen/vi_32/pv6oGv8kico72icS59fY6Z2icaqna7Wu9GEEGkr25EN0GX2gned25zf6DCpQQPStCcOCJTAuOrZKicngExjB0RtT2A/132",
-            originalLink: "https://www.facebook.com/events/3726572010695855/?acontext=%7B%22source%22%3A2%2C%22source_dashboard_filter%22%3A%22discovery%22%2C%22action_history%22%3A%22[%7B%5C%22surface%5C%22%3A%5C%22discover_filter_list%5C%22%2C%5C%22mechanism%5C%22%3A%5C%22surface%5C%22%2C%5C%22extra_data%5C%22%3A%7B%5C%22dashboard_filter%5C%22%3A%5C%22discovery%5C%22%7D%7D]%22%2C%22has_source%22%3Atrue%7D"
-          },
-        {
-            id: "lln232434",
-            name: "Jack and the Beanstalk: A Socially Distanced Pantomime",
-            category: "Art",
-            city: "Newcastle Upon Tyne",
-            location: "Tyne Theatre & Opera House",
-            address: "Westgate Road, Newcastle Upon Tyne",
-            startTime: "2020-12-18T19:00:00.000+00:00",
-            endTime: "2020-12-18T20:15:00.000+00:00",
-            detail: "Does the Tyne Theatre have a pantomime this Christmas?… Oh yes it does! Climb up our socially distanced Beanstalk this December with a GIANT of a show starring the hilarious Charlie Richmond as Simple Simon and a cast of some of the North East’s best panto talent.This year’s production is a specially designed 75 minute, socially distanced, rib-tickling festive treat for all the family, with a reduced capacity and no interval to minimise crowding.Join dotty Dame Trott and her family as they are tricked into selling their beloved cow Daisy for a useless bag of beans. Laugh at silly Simple Simon and cheer-on our hero Jack as he tries to rescue his sweetheart Jill from the nasty Giant’s castle in the sky.We only have a very limited number of tickets for this year’s panto, so if you want to join in the fun and laughter this Christmas at the Tyne Theatre & Opera House book early to avoid disappointment.Fee Fi Fo Fum… It’s panto fun for everyone!For booking & safety information, please see our website: http://bit.ly/TTbeanstalk",
-            pics: "https://thirdwx.qlogo.cn/mmopen/vi_32/pv6oGv8kico72icS59fY6Z2icaqna7Wu9GEEGkr25EN0GX2gned25zf6DCpQQPStCcOCJTAuOrZKicngExjB0RtT2A/132",
-            originalLink: "https://www.facebook.com/events/3726572010695855/?acontext=%7B%22source%22%3A2%2C%22source_dashboard_filter%22%3A%22discovery%22%2C%22action_history%22%3A%22[%7B%5C%22surface%5C%22%3A%5C%22discover_filter_list%5C%22%2C%5C%22mechanism%5C%22%3A%5C%22surface%5C%22%2C%5C%22extra_data%5C%22%3A%7B%5C%22dashboard_filter%5C%22%3A%5C%22discovery%5C%22%7D%7D]%22%2C%22has_source%22%3Atrue%7D"
-          },
-        {
-            id: "lln232434",
-            name: "Jack and the Beanstalk: A Socially Distanced Pantomime",
-            category: "Art",
-            city: "Newcastle Upon Tyne",
-            location: "Tyne Theatre & Opera House",
-            address: "Westgate Road, Newcastle Upon Tyne",
-            startTime: "2020-12-18T19:00:00.000+00:00",
-            endTime: "2020-12-18T20:15:00.000+00:00",
-            detail: "Does the Tyne Theatre have a pantomime this Christmas?… Oh yes it does! Climb up our socially distanced Beanstalk this December with a GIANT of a show starring the hilarious Charlie Richmond as Simple Simon and a cast of some of the North East’s best panto talent.This year’s production is a specially designed 75 minute, socially distanced, rib-tickling festive treat for all the family, with a reduced capacity and no interval to minimise crowding.Join dotty Dame Trott and her family as they are tricked into selling their beloved cow Daisy for a useless bag of beans. Laugh at silly Simple Simon and cheer-on our hero Jack as he tries to rescue his sweetheart Jill from the nasty Giant’s castle in the sky.We only have a very limited number of tickets for this year’s panto, so if you want to join in the fun and laughter this Christmas at the Tyne Theatre & Opera House book early to avoid disappointment.Fee Fi Fo Fum… It’s panto fun for everyone!For booking & safety information, please see our website: http://bit.ly/TTbeanstalk",
-            pics: "https://thirdwx.qlogo.cn/mmopen/vi_32/pv6oGv8kico72icS59fY6Z2icaqna7Wu9GEEGkr25EN0GX2gned25zf6DCpQQPStCcOCJTAuOrZKicngExjB0RtT2A/132",
-            originalLink: "https://www.facebook.com/events/3726572010695855/?acontext=%7B%22source%22%3A2%2C%22source_dashboard_filter%22%3A%22discovery%22%2C%22action_history%22%3A%22[%7B%5C%22surface%5C%22%3A%5C%22discover_filter_list%5C%22%2C%5C%22mechanism%5C%22%3A%5C%22surface%5C%22%2C%5C%22extra_data%5C%22%3A%7B%5C%22dashboard_filter%5C%22%3A%5C%22discovery%5C%22%7D%7D]%22%2C%22has_source%22%3Atrue%7D"
-          },
-        {
-            id: "lln232434",
-            name: "Jack and the Beanstalk: A Socially Distanced Pantomime",
-            category: "Art",
-            city: "Newcastle Upon Tyne",
-            location: "Tyne Theatre & Opera House",
-            address: "Westgate Road, Newcastle Upon Tyne",
-            startTime: "2020-12-18T19:00:00.000+00:00",
-            endTime: "2020-12-18T20:15:00.000+00:00",
-            detail: "Does the Tyne Theatre have a pantomime this Christmas?… Oh yes it does! Climb up our socially distanced Beanstalk this December with a GIANT of a show starring the hilarious Charlie Richmond as Simple Simon and a cast of some of the North East’s best panto talent.This year’s production is a specially designed 75 minute, socially distanced, rib-tickling festive treat for all the family, with a reduced capacity and no interval to minimise crowding.Join dotty Dame Trott and her family as they are tricked into selling their beloved cow Daisy for a useless bag of beans. Laugh at silly Simple Simon and cheer-on our hero Jack as he tries to rescue his sweetheart Jill from the nasty Giant’s castle in the sky.We only have a very limited number of tickets for this year’s panto, so if you want to join in the fun and laughter this Christmas at the Tyne Theatre & Opera House book early to avoid disappointment.Fee Fi Fo Fum… It’s panto fun for everyone!For booking & safety information, please see our website: http://bit.ly/TTbeanstalk",
-            pics: "https://thirdwx.qlogo.cn/mmopen/vi_32/pv6oGv8kico72icS59fY6Z2icaqna7Wu9GEEGkr25EN0GX2gned25zf6DCpQQPStCcOCJTAuOrZKicngExjB0RtT2A/132",
-            originalLink: "https://www.facebook.com/events/3726572010695855/?acontext=%7B%22source%22%3A2%2C%22source_dashboard_filter%22%3A%22discovery%22%2C%22action_history%22%3A%22[%7B%5C%22surface%5C%22%3A%5C%22discover_filter_list%5C%22%2C%5C%22mechanism%5C%22%3A%5C%22surface%5C%22%2C%5C%22extra_data%5C%22%3A%7B%5C%22dashboard_filter%5C%22%3A%5C%22discovery%5C%22%7D%7D]%22%2C%22has_source%22%3Atrue%7D"
-          }],
+        events: [
+        // {
+        //   id: "lln232432",
+        //   name: "Jack and the Beanstalk: A Socially Distanced Pantomime",
+        //   category: "Art",
+        //   city: "Newcastle Upon Tyne",
+        //   location: "Tyne Theatre & Opera House",
+        //   address: "Westgate Road, Newcastle Upon Tyne",
+        //   startTime: "2020-12-18T19:00:00.000+00:00",
+        //   endTime: "2020-12-18T20:15:00.000+00:00",
+        //   detail: "Does the Tyne Theatre have a pantomime this Christmas?… Oh yes it does!Climb up our socially distanced Beanstalk this December with a GIANT of a show starring the hilarious Charlie Richmond as Simple Simon and a cast of some of the North East’s best panto talent.This year’s production is a specially designed 75 minute, socially distanced, rib-tickling festive treat for all the family, with a reduced capacity and no interval to minimise crowding.Join dotty Dame Trott and her family as they are tricked into selling their beloved cow Daisy for a useless bag of beans. Laugh at silly Simple Simon and cheer-on our hero Jack as he tries to rescue his sweetheart Jill from the nasty Giant’s castle in the sky.We only have a very limited number of tickets for this year’s panto, so if you want to join in the fun and laughter this Christmas at the Tyne Theatre & Opera House book early to avoid disappointment.Fee Fi Fo Fum… It’s panto fun for everyone!For booking & safety information, please see our website: http://bit.ly/TTbeanstalk",
+        //   pics: "https://thirdwx.qlogo.cn/mmopen/vi_32/pv6oGv8kico72icS59fY6Z2icaqna7Wu9GEEGkr25EN0GX2gned25zf6DCpQQPStCcOCJTAuOrZKicngExjB0RtT2A/132",
+        //   originalLink: "https://www.facebook.com/events/3726572010695855/?acontext=%7B%22source%22%3A2%2C%22source_dashboard_filter%22%3A%22discovery%22%2C%22action_history%22%3A%22[%7B%5C%22surface%5C%22%3A%5C%22discover_filter_list%5C%22%2C%5C%22mechanism%5C%22%3A%5C%22surface%5C%22%2C%5C%22extra_data%5C%22%3A%7B%5C%22dashboard_filter%5C%22%3A%5C%22discovery%5C%22%7D%7D]%22%2C%22has_source%22%3Atrue%7D"
+        // },
+        // {
+        //   id: "lln232433",
+        //   name: "Jack and the Beanstalk: A Socially Distanced Pantomime",
+        //   category: "Art",
+        //   city: "Newcastle Upon Tyne",
+        //   location: "Tyne Theatre & Opera House",
+        //   address: "Westgate Road, Newcastle Upon Tyne",
+        //   startTime: "2020-12-18T19:00:00.000+00:00",
+        //   endTime: "2020-12-18T20:15:00.000+00:00",
+        //   detail: "Does the Tyne Theatre have a pantomime this Christmas?… Oh yes it does!Climb up our socially distanced Beanstalk this December with a GIANT of a show starring the hilarious Charlie Richmond as Simple Simon and a cast of some of the North East’s best panto talent.This year’s production is a specially designed 75 minute, socially distanced, rib-tickling festive treat for all the family, with a reduced capacity and no interval to minimise crowding.Join dotty Dame Trott and her family as they are tricked into selling their beloved cow Daisy for a useless bag of beans. Laugh at silly Simple Simon and cheer-on our hero Jack as he tries to rescue his sweetheart Jill from the nasty Giant’s castle in the sky.We only have a very limited number of tickets for this year’s panto, so if you want to join in the fun and laughter this Christmas at the Tyne Theatre & Opera House book early to avoid disappointment.Fee Fi Fo Fum… It’s panto fun for everyone!For booking & safety information, please see our website: http://bit.ly/TTbeanstalk",
+        //   pics: "https://thirdwx.qlogo.cn/mmopen/vi_32/pv6oGv8kico72icS59fY6Z2icaqna7Wu9GEEGkr25EN0GX2gned25zf6DCpQQPStCcOCJTAuOrZKicngExjB0RtT2A/132",
+        //   originalLink: "https://www.facebook.com/events/3726572010695855/?acontext=%7B%22source%22%3A2%2C%22source_dashboard_filter%22%3A%22discovery%22%2C%22action_history%22%3A%22[%7B%5C%22surface%5C%22%3A%5C%22discover_filter_list%5C%22%2C%5C%22mechanism%5C%22%3A%5C%22surface%5C%22%2C%5C%22extra_data%5C%22%3A%7B%5C%22dashboard_filter%5C%22%3A%5C%22discovery%5C%22%7D%7D]%22%2C%22has_source%22%3Atrue%7D"
+        // },
+        // {
+        //   id: "lln232434",
+        //   name: "Jack and the Beanstalk: A Socially Distanced Pantomime",
+        //   category: "Art",
+        //   city: "Newcastle Upon Tyne",
+        //   location: "Tyne Theatre & Opera House",
+        //   address: "Westgate Road, Newcastle Upon Tyne",
+        //   startTime: "2020-12-18T19:00:00.000+00:00",
+        //   endTime: "2020-12-18T20:15:00.000+00:00",
+        //   detail: "Does the Tyne Theatre have a pantomime this Christmas?… Oh yes it does! Climb up our socially distanced Beanstalk this December with a GIANT of a show starring the hilarious Charlie Richmond as Simple Simon and a cast of some of the North East’s best panto talent.This year’s production is a specially designed 75 minute, socially distanced, rib-tickling festive treat for all the family, with a reduced capacity and no interval to minimise crowding.Join dotty Dame Trott and her family as they are tricked into selling their beloved cow Daisy for a useless bag of beans. Laugh at silly Simple Simon and cheer-on our hero Jack as he tries to rescue his sweetheart Jill from the nasty Giant’s castle in the sky.We only have a very limited number of tickets for this year’s panto, so if you want to join in the fun and laughter this Christmas at the Tyne Theatre & Opera House book early to avoid disappointment.Fee Fi Fo Fum… It’s panto fun for everyone!For booking & safety information, please see our website: http://bit.ly/TTbeanstalk",
+        //   pics: "https://thirdwx.qlogo.cn/mmopen/vi_32/pv6oGv8kico72icS59fY6Z2icaqna7Wu9GEEGkr25EN0GX2gned25zf6DCpQQPStCcOCJTAuOrZKicngExjB0RtT2A/132",
+        //   originalLink: "https://www.facebook.com/events/3726572010695855/?acontext=%7B%22source%22%3A2%2C%22source_dashboard_filter%22%3A%22discovery%22%2C%22action_history%22%3A%22[%7B%5C%22surface%5C%22%3A%5C%22discover_filter_list%5C%22%2C%5C%22mechanism%5C%22%3A%5C%22surface%5C%22%2C%5C%22extra_data%5C%22%3A%7B%5C%22dashboard_filter%5C%22%3A%5C%22discovery%5C%22%7D%7D]%22%2C%22has_source%22%3Atrue%7D"
+        // },
+        // {
+        //   id: "lln232434",
+        //   name: "Jack and the Beanstalk: A Socially Distanced Pantomime",
+        //   category: "Art",
+        //   city: "Newcastle Upon Tyne",
+        //   location: "Tyne Theatre & Opera House",
+        //   address: "Westgate Road, Newcastle Upon Tyne",
+        //   startTime: "2020-12-18T19:00:00.000+00:00",
+        //   endTime: "2020-12-18T20:15:00.000+00:00",
+        //   detail: "Does the Tyne Theatre have a pantomime this Christmas?… Oh yes it does! Climb up our socially distanced Beanstalk this December with a GIANT of a show starring the hilarious Charlie Richmond as Simple Simon and a cast of some of the North East’s best panto talent.This year’s production is a specially designed 75 minute, socially distanced, rib-tickling festive treat for all the family, with a reduced capacity and no interval to minimise crowding.Join dotty Dame Trott and her family as they are tricked into selling their beloved cow Daisy for a useless bag of beans. Laugh at silly Simple Simon and cheer-on our hero Jack as he tries to rescue his sweetheart Jill from the nasty Giant’s castle in the sky.We only have a very limited number of tickets for this year’s panto, so if you want to join in the fun and laughter this Christmas at the Tyne Theatre & Opera House book early to avoid disappointment.Fee Fi Fo Fum… It’s panto fun for everyone!For booking & safety information, please see our website: http://bit.ly/TTbeanstalk",
+        //   pics: "https://thirdwx.qlogo.cn/mmopen/vi_32/pv6oGv8kico72icS59fY6Z2icaqna7Wu9GEEGkr25EN0GX2gned25zf6DCpQQPStCcOCJTAuOrZKicngExjB0RtT2A/132",
+        //   originalLink: "https://www.facebook.com/events/3726572010695855/?acontext=%7B%22source%22%3A2%2C%22source_dashboard_filter%22%3A%22discovery%22%2C%22action_history%22%3A%22[%7B%5C%22surface%5C%22%3A%5C%22discover_filter_list%5C%22%2C%5C%22mechanism%5C%22%3A%5C%22surface%5C%22%2C%5C%22extra_data%5C%22%3A%7B%5C%22dashboard_filter%5C%22%3A%5C%22discovery%5C%22%7D%7D]%22%2C%22has_source%22%3Atrue%7D"
+        //   },
+        // {
+        //   id: "lln232434",
+        //   name: "Jack and the Beanstalk: A Socially Distanced Pantomime",
+        //   category: "Art",
+        //   city: "Newcastle Upon Tyne",
+        //   location: "Tyne Theatre & Opera House",
+        //   address: "Westgate Road, Newcastle Upon Tyne",
+        //   startTime: "2020-12-18T19:00:00.000+00:00",
+        //   endTime: "2020-12-18T20:15:00.000+00:00",
+        //   detail: "Does the Tyne Theatre have a pantomime this Christmas?… Oh yes it does! Climb up our socially distanced Beanstalk this December with a GIANT of a show starring the hilarious Charlie Richmond as Simple Simon and a cast of some of the North East’s best panto talent.This year’s production is a specially designed 75 minute, socially distanced, rib-tickling festive treat for all the family, with a reduced capacity and no interval to minimise crowding.Join dotty Dame Trott and her family as they are tricked into selling their beloved cow Daisy for a useless bag of beans. Laugh at silly Simple Simon and cheer-on our hero Jack as he tries to rescue his sweetheart Jill from the nasty Giant’s castle in the sky.We only have a very limited number of tickets for this year’s panto, so if you want to join in the fun and laughter this Christmas at the Tyne Theatre & Opera House book early to avoid disappointment.Fee Fi Fo Fum… It’s panto fun for everyone!For booking & safety information, please see our website: http://bit.ly/TTbeanstalk",
+        //   pics: "https://thirdwx.qlogo.cn/mmopen/vi_32/pv6oGv8kico72icS59fY6Z2icaqna7Wu9GEEGkr25EN0GX2gned25zf6DCpQQPStCcOCJTAuOrZKicngExjB0RtT2A/132",
+        //   originalLink: "https://www.facebook.com/events/3726572010695855/?acontext=%7B%22source%22%3A2%2C%22source_dashboard_filter%22%3A%22discovery%22%2C%22action_history%22%3A%22[%7B%5C%22surface%5C%22%3A%5C%22discover_filter_list%5C%22%2C%5C%22mechanism%5C%22%3A%5C%22surface%5C%22%2C%5C%22extra_data%5C%22%3A%7B%5C%22dashboard_filter%5C%22%3A%5C%22discovery%5C%22%7D%7D]%22%2C%22has_source%22%3Atrue%7D"
+        //   },
+        // {
+        //   id: "lln232434",
+        //   name: "Jack and the Beanstalk: A Socially Distanced Pantomime",
+        //   category: "Art",
+        //   city: "Newcastle Upon Tyne",
+        //   location: "Tyne Theatre & Opera House",
+        //   address: "Westgate Road, Newcastle Upon Tyne",
+        //   startTime: "2020-12-18T19:00:00.000+00:00",
+        //   endTime: "2020-12-18T20:15:00.000+00:00",
+        //   detail: "Does the Tyne Theatre have a pantomime this Christmas?… Oh yes it does! Climb up our socially distanced Beanstalk this December with a GIANT of a show starring the hilarious Charlie Richmond as Simple Simon and a cast of some of the North East’s best panto talent.This year’s production is a specially designed 75 minute, socially distanced, rib-tickling festive treat for all the family, with a reduced capacity and no interval to minimise crowding.Join dotty Dame Trott and her family as they are tricked into selling their beloved cow Daisy for a useless bag of beans. Laugh at silly Simple Simon and cheer-on our hero Jack as he tries to rescue his sweetheart Jill from the nasty Giant’s castle in the sky.We only have a very limited number of tickets for this year’s panto, so if you want to join in the fun and laughter this Christmas at the Tyne Theatre & Opera House book early to avoid disappointment.Fee Fi Fo Fum… It’s panto fun for everyone!For booking & safety information, please see our website: http://bit.ly/TTbeanstalk",
+        //   pics: "https://thirdwx.qlogo.cn/mmopen/vi_32/pv6oGv8kico72icS59fY6Z2icaqna7Wu9GEEGkr25EN0GX2gned25zf6DCpQQPStCcOCJTAuOrZKicngExjB0RtT2A/132",
+        //   originalLink: "https://www.facebook.com/events/3726572010695855/?acontext=%7B%22source%22%3A2%2C%22source_dashboard_filter%22%3A%22discovery%22%2C%22action_history%22%3A%22[%7B%5C%22surface%5C%22%3A%5C%22discover_filter_list%5C%22%2C%5C%22mechanism%5C%22%3A%5C%22surface%5C%22%2C%5C%22extra_data%5C%22%3A%7B%5C%22dashboard_filter%5C%22%3A%5C%22discovery%5C%22%7D%7D]%22%2C%22has_source%22%3Atrue%7D"
+        //   },
+        // {
+        //   id: "lln232434",
+        //   name: "Jack and the Beanstalk: A Socially Distanced Pantomime",
+        //   category: "Art",
+        //   city: "Newcastle Upon Tyne",
+        //   location: "Tyne Theatre & Opera House",
+        //   address: "Westgate Road, Newcastle Upon Tyne",
+        //   startTime: "2020-12-18T19:00:00.000+00:00",
+        //   endTime: "2020-12-18T20:15:00.000+00:00",
+        //   detail: "Does the Tyne Theatre have a pantomime this Christmas?… Oh yes it does! Climb up our socially distanced Beanstalk this December with a GIANT of a show starring the hilarious Charlie Richmond as Simple Simon and a cast of some of the North East’s best panto talent.This year’s production is a specially designed 75 minute, socially distanced, rib-tickling festive treat for all the family, with a reduced capacity and no interval to minimise crowding.Join dotty Dame Trott and her family as they are tricked into selling their beloved cow Daisy for a useless bag of beans. Laugh at silly Simple Simon and cheer-on our hero Jack as he tries to rescue his sweetheart Jill from the nasty Giant’s castle in the sky.We only have a very limited number of tickets for this year’s panto, so if you want to join in the fun and laughter this Christmas at the Tyne Theatre & Opera House book early to avoid disappointment.Fee Fi Fo Fum… It’s panto fun for everyone!For booking & safety information, please see our website: http://bit.ly/TTbeanstalk",
+        //   pics: "https://thirdwx.qlogo.cn/mmopen/vi_32/pv6oGv8kico72icS59fY6Z2icaqna7Wu9GEEGkr25EN0GX2gned25zf6DCpQQPStCcOCJTAuOrZKicngExjB0RtT2A/132",
+        //   originalLink: "https://www.facebook.com/events/3726572010695855/?acontext=%7B%22source%22%3A2%2C%22source_dashboard_filter%22%3A%22discovery%22%2C%22action_history%22%3A%22[%7B%5C%22surface%5C%22%3A%5C%22discover_filter_list%5C%22%2C%5C%22mechanism%5C%22%3A%5C%22surface%5C%22%2C%5C%22extra_data%5C%22%3A%7B%5C%22dashboard_filter%5C%22%3A%5C%22discovery%5C%22%7D%7D]%22%2C%22has_source%22%3Atrue%7D"
+        //   }
+        ],
 
         processedEvents: []
 
@@ -158,13 +160,22 @@
       //   }
       // },
 
-      scrollToLower() {
-        console.log("lowest")
-      },
+      // 页面滑动
+      // scrollToLower() {
+      //   console.log("lowest")
+      // },
+      //
+      // scroll(e) {
+      //   // this.existStyle(e.target.scrollTop)
+      //   console.log(Math.floor(e.target.scrollTop / 80))
+      // },
 
-      scroll(e) {
-        // this.existStyle(e.target.scrollTop)
-        console.log(Math.floor(e.target.scrollTop / 80))
+      collection() {
+        wx.showToast({
+          title: '收藏成功',
+          icon: 'success',
+          duration: 2000
+        })
       }
     }
   }
@@ -199,6 +210,7 @@
       .event-context {
         margin-left: 5px;
         margin-top: 6px;
+        width: 100%;
         margin-right: 5px;
         .event-name {
           background-color: #F5A362;
