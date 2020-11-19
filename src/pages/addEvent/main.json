@@ -8,6 +8,7 @@
     "van-popup": "/static/vant/popup/index",
     "van-cell": "/static/vant/cell/index",
     "van-cell-group": "/static/vant/cell-group/index",
-    "van-field": "/static/vant/field/index"
+    "van-field": "/static/vant/field/index",
+    "van-image": "/static/vant/image/index"
   }
 }

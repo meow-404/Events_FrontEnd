@@ -31,7 +31,14 @@
         </van-popup>
       </div>
       <div class="chooseImg">
-        <img :src="imgSrc" @click="chooseImg()"/>
+<!--        <img :src="imgSrc" @click="chooseImg()"/>-->
+        <van-image
+          width="100%"
+          height="100%"
+          fit="cover"
+          :src="imgSrc"
+          @click="chooseImg()"
+        />
       </div>
     </div>
     <button @click="submit">123</button>
@@ -167,6 +174,7 @@
       },
 
       chooseImg() {
+        var _this = this
         wx.chooseImage({
           success (res) {
             const tempFilePaths = res.tempFilePaths
@@ -180,7 +188,12 @@
               success (res){
                 const data = res.data
                 //do something
-                console.log(res)
+                wx.showToast({
+                  title: '上传成功',
+                  icon: 'success',
+                  duration: 2000
+                })
+                _this.imgSrc = data
               }
             })
           }
@@ -205,10 +218,7 @@
   .chooseImg {
     width: 100px;
     height: 100px;
-    img {
-      width: 100px;
-      height: 100px;
-    }
+
   }
 
 </style>
